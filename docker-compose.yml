@@ -1,10 +1,14 @@
 wetty:
-  image: nathanleclaire/wetty
+  build: wetty-with-docker
   ports: 
     - "3000:3000"
   environment:
     VIRTUAL_PORT: 3000
     VIRTUAL_HOST: thephedds.com
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/local/bin/docker:/bin/docker
 
 nginx:
   image: jwilder/nginx-proxy
