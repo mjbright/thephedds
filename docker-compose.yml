@@ -12,3 +12,11 @@ nginx:
     - /var/run/docker.sock:/tmp/docker.sock:ro
   ports: 
     - "80:80"
+
+dockerGo:
+  build: docker-api
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    - ./docker-api/:/go/src/github.com/thenayr/docker-viz
+  environment:
+    HOST_HOSTNAME: my-docker-host
