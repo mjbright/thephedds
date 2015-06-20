@@ -13,7 +13,7 @@ nginx:
   ports: 
     - "80:80"
 
-dockerGo:
+go:
   build: docker-api
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock
