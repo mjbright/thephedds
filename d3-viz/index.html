@@ -1,72 +1,111 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-<link href='graph.css' rel='stylesheet' type='text/css'>
-<script src="http://d3js.org/d3.v3.js"></script>
+<head>
+    <meta HTTP-EQUIV="X-UA-COMPATIBLE" CONTENT="IE=EmulateIE9" >
+    <script type="text/javascript" src="scripts/d3.min.js"></script>
+    <script type="text/javascript" src="scripts/radialProgress.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+
+    <style>
+
+        #test .arc2 {
+            stroke-weight:0.1;
+            fill: #3660b0;
+        }
+
+        #outer {
+            background:#FFFFFF;
+            border-radius: 5px;
+            color: #000;
+        }
+
+        #div1, #div2, #div3, #div4 {
+            width: 33%;
+            height: 200px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        #div2 .arc {
+            stroke-weight: 0.1;
+            fill: #f0a417;
+        }
+
+        #div2 .arc2 {
+            stroke-weight: 0.1;
+            fill: #b00d08;
+        }
+
+
+        .selectedRadial {
+            border-radius: 3px;
+            background: #f4f4f4;
+            color: #000;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            border: 1px solid rgba(200,200,200,0.85);
+        }
+
+        .radial {
+            border-radius: 3px;
+            background: #FFFFFF;
+            color: #000;
+
+        }
+
+
+    </style>
+</head>
+
 <body>
 
-<svg id="graph"></svg>
+<div id='outer' style="width: 1000px; height:800px; margin: 0px auto; margin-top:20px; padding:10px">
+    <div id="main" style="width:1000px; height:200px; margin: 0px auto; ">
+        <div id="div2"></div>
+    </div>
+    <button>Add new container </button>
+</div>
 
-<script>
 
-var margin = 40,
-    width = 960 - margin*2,
-    height = 500 - margin*2;
 
-var xScale = d3.time.scale()
-    .range([0, width])
-    .nice(d3.time.year);
+<script language="JavaScript">
 
-var yScale = d3.scale.linear()
-    .range([height, 0])
-    .nice();
+    var div2=d3.select(document.getElementById('div2'));
 
-var xAxis = d3.svg.axis()
-    .scale(xScale)
-    .orient("bottom");
+    start();
 
-var yAxis = d3.svg.axis()
-    .scale(yScale)
-    .orient("left");
 
-var line = d3.svg.line()
-    .x(function(d) { return xScale(d.date); })
-    .y(function(d) { return yScale(d.close); });
+    function onClick2() {
+        deselect();
+        div2.attr("class","selectedRadial");
+    }
 
-var graph = d3.select("#graph")
-    .attr("width", width + margin*2)
-    .attr("height", height + margin*2)
-  .append("g")
-    .attr("transform", "translate(" + margin + "," + margin + ")");
 
-d3.csv("amzn.csv", function(error, data) {
-  data.forEach(function(d) {
-    d.date = d3.time.format("%Y-%m-%d").parse(d.date);
-    d.close = +d.close;
-  });
+    function labelFunction(val,min,max) {
 
-  xScale.domain(d3.extent(data, function(d) { return d.date; }));
-  yScale.domain(d3.extent(data, function(d) { return d.close; }));
+    }
 
-  graph.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+    function deselect() {
+        div2.attr("class","radial");
+    }
 
-  graph.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Price ($)");
+    function start() {
 
-  graph.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line);
-});
+
+        var rp2 = radialProgress(document.getElementById('div2'))
+                .label("Container 1")
+                .onClick(onClick2)
+                .diameter(150)
+                .value(132)
+                .render();
+
+    }
+
+
+
+
 
 </script>
+
+</body>
+</html>

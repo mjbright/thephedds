@@ -12,6 +12,7 @@ nginx:
     - /var/run/docker.sock:/tmp/docker.sock:ro
     - ./nginx/d3.conf:/etc/nginx/vhost.d/thephedds.com:ro
     - ./d3-viz:/opt/d3-view:ro
+    - ./index:/opt/home:ro
   ports: 
     - "80:80"
 
