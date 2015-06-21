@@ -26,22 +26,8 @@
       // Create and populate a data table.
       data = new vis.DataSet();
 
-      // create some nice looking data with sin/cos
-      var steps = 5;  // number of datapoints will be steps*steps
-      var axisMax = 10;
-      var axisStep = axisMax / steps;
-      for (var x = 0; x <= axisMax; x+=axisStep) {
-        for (var y = 0; y <= axisMax; y+=axisStep) {
-          var z = custom(x,y);
-          if (withValue) {
-            var value = (y - x);
-            data.add({x:x, y:y, z: z, style:value});
-          }
-          else {
-            data.add({x:x, y:y, z: z});
-          }
-        }
-      }
+      data.add({x:1, y:2, z: 4, style:2});
+      data.add({x:3, y:3, z: 2, style:2});
 
       // specify options
       var options = {

@@ -1,0 +1,198 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font: 12px/16px Arial, sans-serif;
+	color: #333;
+}
+
+body{
+	background: #fafafa;
+}
+
+#wrapper{
+	width: 600px;
+	height: 300px;
+	margin: 50px auto;
+	background: #fff;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
+
+.col{
+	float: left;
+}
+
+.col.left{
+	width: 199px;
+	border-right: 1px solid #ccc;
+	box-shadow: 3px 0 8px rgba( 0, 0, 0, 0.1);
+	background: #f6f6f6;
+	overflow: hidden;
+}
+
+.col.right{
+	width: 400px;
+}
+
+.users{
+	height: 260px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.users *{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.users li{
+	position: relative;
+	padding: 10px;
+	border-bottom: 1px solid #dbdbdb;
+	border-top: 1px solid #fff;
+	cursor: pointer;
+}
+
+.users li:hover{
+	background: #f3f3f3;
+}
+
+.users li:active{
+	border-top: 1px solid #dbdbdb;
+	border-bottom: 1px solid #fff;
+}
+
+.users li.active{
+	background: #F0F8FF;
+}
+
+.users li.active *{
+	color: #111;
+}
+
+.users li em{
+	display: block;
+}
+
+.users li em span{
+	font-weight: bold;
+}
+
+.users .delete-button{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 167px;
+	top: 15px;
+	font-size: 20px;
+	color: #999;
+	cursor: pointer;
+}
+
+.users .delete-button:hover{
+	color: #666;
+}
+
+.users .delete-button:active{
+	color: #444;
+}
+
+.addUser{
+	padding: 10px 0;
+	height: 20px;
+	text-align: center;
+	cursor: pointer;
+	background: #666;
+	border-top: 1px solid #555;
+}
+
+.addUser:hover{
+	background: #6A6A6A;
+	border-top: 1px solid #666;
+}
+
+.addUser:active{
+	background: #555;
+	border-top: 1px solid #666;
+}
+
+.addUser i{
+	color: #fff;
+	font-size: 18px;
+}
+
+.addUser span{
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+fieldset{
+	border: none;
+	margin: 10px;
+	width: 380px;
+	overflow: hidden;
+	margin: 20px 10px 10px;
+}
+
+fieldset legend{
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+}
+
+fieldset label{
+	display: block;
+	font-size: 11px;
+	color: #999;
+  	margin-bottom: -2px;
+}
+
+.fields{
+	overflow: hidden;
+}
+
+.fields li{
+	float: left;
+	margin: 5px 10px 5px 0;
+}
+
+.fields li:nth-child(even){
+	margin-right: 0;
+}
+
+.fields li input{
+	border: 1px solid #ccc;
+	padding: 1px;
+	outline: none;
+}
+
+#firstname,
+#lastname{
+	width: 181px;
+}
+
+#title{
+	width: 376px;
+}
+
+#street{
+	width: 300px;
+}
+
+#number{
+	width: 62px;
+}
+
+#postcode{
+	width: 80px;
+}
+
+#city{
+	width: 282px;
+}

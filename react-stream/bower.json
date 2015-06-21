@@ -1,0 +1,24 @@
+{
+  "name": "ds-simple-input",
+  "version": "0.0.0",
+  "homepage": "https://github.com/hoxton-one/ds-demo-simple-app-react",
+  "authors": [
+    "Wolfram Hempel <hempel.wolfram@gmail.com>",
+    "Yasser Fadl <yasser.fadl@gmail.com>"
+  ],
+  "description": "A sample app using react",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "deepstream.io-client-js": "latest",
+    "react": "~0.13.3",
+    "eventEmitter": "~4.2.11"
+  }
+}

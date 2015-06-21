@@ -21,7 +21,7 @@ func main() {
     switch msg.Status {
     case "start":
       log.Println("Start: ", msg.ID)
-      goreq.Request{ Method: "POST", Uri: "http://172.17.42.1:3000/docker-start" }.Do()
+      goreq.Request{ Method: "POST", Uri: "http://172.17.42.1:3001/docker-start" }.Do()
     case "die":
       log.Println("Die: ", msg.ID)
     case "stop", "kill":

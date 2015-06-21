@@ -16,6 +16,7 @@ nginx:
     - /var/run/docker.sock:/tmp/docker.sock:ro
     - ./nginx/d3.conf:/etc/nginx/vhost.d/thephedds.com:ro
     - ./d3-viz:/opt/d3-view:ro
+    - ./react-stream:/opt/react:ro
     - ./index:/opt/home:ro
   ports: 
     - "80:80"
@@ -27,3 +28,9 @@ go:
     - ./docker-api/:/go/src/github.com/thenayr/docker-viz
   environment:
     HOST_HOSTNAME: my-docker-host
+
+deepstream:
+  build: react-stream
+  ports:
+    - "6020:6020"
+    - "6021:6021"
