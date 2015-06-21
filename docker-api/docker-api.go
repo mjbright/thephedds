@@ -12,6 +12,9 @@ import (
 func main() {
   type Item struct {
     Name string
+    State docker.State
+    //Created string
+    //Args string
   }
 
   endpoint := "unix:///tmp/docker.sock"
@@ -28,16 +31,16 @@ func main() {
       log.Println("Start: ", msg.ID)
       container, _ := client.InspectContainer( msg.ID )
       containerNameStrip := strings.TrimPrefix(container.Name, "/") 
-      containerArgsStrip := container.Args
-      containerStateStrip := container.State
-      containerCreatedStrip := container.Created
+      containerState := container.State
+      //containerCreated := container.Created
+      // containerArgs := container.Args
 
       log.Println( containerNameStrip )
-      item := Item{ Name:   containerNameStrip,
-                    State:  container.State, 
-                    Created: container.Created, 
-                    Args:   container.Args
-                   }
+      item := Item{ Name: containerNameStrip, 
+                    State: containerState ,
+      }
+                    //Created: containerCreated, 
+                    //Args: containerArgs
       goreq.Request{
         Method: "POST",
         Uri: "http://172.17.42.1:3001/docker-start",
