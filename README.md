@@ -5,4 +5,4 @@ The Phenomenal Docker Demos
 
 * sudo sh -c 'echo "$BOOT2DOCKERIP thephedds.com" >> /etc/hosts'
 * ```docker-compose up```
-* Hit [thephedds.com](http://thephedds.com)
+* Hit [thephedds.com/home/](http://thephedds.com/home/)
