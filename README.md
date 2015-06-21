@@ -15,7 +15,7 @@ With this idea in mind we built the Phedds
 ## How it works
 Every panel correspond to a web application that runs inside a container.
 The docker shell is provided through a modified wetty containers that has access to the host docker engine.
-The monitoring applications are  are feed through Docker events streams using go client and web sockets.
+The monitoring applications are fed through Docker events streams using go client and web sockets.
 All applications are bootstrapped using docker compose.
 
 ## What's next
