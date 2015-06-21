@@ -20,7 +20,7 @@ a {
 .component .label {
     font-family: Myriad, "Helvetic Neue", Helvetica, Arial;
     text-anchor: middle;
-    fill: #0000FF;
+    fill: #666666;
 }
 
 .arc {
@@ -62,11 +62,11 @@ a {
   height: 50px;
 }
 
-.grid-item--width-1 { width: 50px; }
+.grid-item--width-1 { width: 70px; }
 .grid-item--width-2 { width: 80px; }
 .grid-item--width-3 { width: 110px; }
 .grid-item--width-4 { width: 150px; }
-.grid-item--height-1 { height: 58px; }
-.grid-item--height-2 { height: 88px; }
-.grid-item--height-3 { height: 118px; }
-.grid-item--height-4 { height: 158px; }
+.grid-item--height-1 { height: 90px; }
+.grid-item--height-2 { height: 100px; }
+.grid-item--height-3 { height: 130px; }
+.grid-item--height-4 { height: 170px; }
