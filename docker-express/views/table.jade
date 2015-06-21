@@ -5,11 +5,16 @@ block content
 
   script(type='text/javascript').
     ds = deepstream( 'http://thephedds.com:6020' ).login();
+
+    if news.State.Running == true{
+        var stateString = "Running";
+    }
+    //var created = news.State.created
     ds.event.subscribe( 'docker', function( news ){
       $(".table-wrapper").append('<tr>'
 
             +'<td>'  + news.Name + '</td>'+
-            +'<td>'  + news.State + '</td>'+
+            +'<td>'  + stateString + '</td>'+
             // +'<td>'  + news.Created + '</td>'+
             // +'<td>'  + news.Args + '</td>'+
 
