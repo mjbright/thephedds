@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .graph-wrapper
+    #network
+
+  script(type='text/javascript').
+
+    $( document ).ready(function() {
+      draw();
+    });
+
+    ds = deepstream( 'http://thephedds.com:6020' ).login();
+    ds.event.subscribe( 'docker', function( news ){
+      $(".wrapper").append('<tr><td>'  + news.Name + '</td></tr>');
+      console.log(news.Name);
+    });
+  

@@ -26,6 +26,10 @@ router.get('/graph', function(req, res, next) {
   res.render('graph', { title: 'Graph' });
 });
 
+router.get('/table', function(req, res, next) {
+  res.render('table', { title: 'table' });
+});
+
 router.post('/docker-start', function(req, res) {
   res.send('success');
   console.log(req.body);
