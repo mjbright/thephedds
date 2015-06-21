@@ -11,27 +11,20 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
-
+    <link href="jquery-1.11.3.min.js" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="grid.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-    window.setInterval("reloadIFrame();", 10000);
-
-    function reloadIFrame() {
-     document.getElementsByTagName("iframe")[1].contentWindow.location.reload();
-    }
-    </script>
+    
   </head>
 
   <body>
@@ -48,21 +41,21 @@
           </ul>
 
         </nav>
-        <h1 class="text-muted">A Dockerfile seems like a pancake?</h1>
+        <h1 class="text-muted">Testing this out 4</h1>
        
         </div>
 
         
       <div class="row">
        
-          <iframe name="one" class="col-md-6" height="400" src="http://thephedds.com/"></iframe>
-          <iframe name="two" class="col-md-6" height="400" src="http://iamnayr.com/"></iframe>
+          <iframe id="one" name="one" class="col-md-6" height="400" src="http://thephedds.com/"></iframe>
+          <iframe id="two" name="two" class="col-md-6" height="400" src="http://iamnayr.com/"></iframe>
 
       </div>
 
       <div class="row">
-         <iframe name="three" class="col-md-6" height="400" src="http://thephedds.com/d3-view"></iframe>
-         <iframe name="four" class="col-md-6" height="400" src="http://localhost:3000/wetty/"></iframe>
+         <iframe id="three" name="three" class="col-md-6" height="400" src="http://thephedds.com/d3-view"></iframe>
+         <iframe id="four" name="four" class="col-md-6" height="400" src="grid.css"></iframe>
       </div>
 
 
@@ -70,7 +63,14 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  
+    
+    <script>
+    window.setInterval("reloadIFrame();", 5000);
+    //var iframe = document.getElementById("three");
+    //iframe.src=iframe.src;
+    function reloadIFrame() {
+      document.getElementById('three').src += '';
+    }
+    </script>
 
 </body></html>
