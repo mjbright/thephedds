@@ -56,10 +56,19 @@ a {
   width:500px;
   height:400px;
 }
-.container {
-    padding-left:5%;
-    float:left;
-    width:0px;
-    height:0px;
-    border: 1px solid #000;
+.grid-item {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: #e6e5e4;
+  border: 2px solid #b6b5b4;
 }
+
+.grid-item--width-1 { width: 50px; }
+.grid-item--width-2 { width: 80px; }
+.grid-item--width-3 { width: 110px; }
+.grid-item--width-4 { width: 150px; }
+.grid-item--height-1 { height: 58px; }
+.grid-item--height-2 { height: 88px; }
+.grid-item--height-3 { height: 118px; }
+.grid-item--height-4 { height: 158px; }

@@ -1,30 +1,43 @@
 extends layout
 
 block content
-  .wrapper
-  #div1
-  #div2
+  .grid
 
   script(type='text/javascript').
-    ds = deepstream( 'http://thephedds.com:6020' ).login();
-    ds.event.subscribe( 'docker', function( news ){
-      $(".wrapper").append('<div class="container" id="'  + news.Name + '"></div>');
+    // Setup the masonry grid
+    $( document ).ready(function() {
+      $('.grid').isotope({
+        // options
+        isFitWidth: true,
+        itemSelector: '.grid-item',
+        columnWidth: 200 
+      });
+    });
 
+
+    // initialize deepstream (for websockets)
+    ds = deepstream( 'http://thephedds.com:6020' ).login();
+    // subscribe to the "docker" event stream
+    ds.event.subscribe( 'docker', function( news ){
+      var genClassSelector = getRandomInt(1, 4);
+      var $item = $('<div class="grid-item grid-item--height-' + genClassSelector  + ' ' + 'grid-item--width-' + genClassSelector + ' " id="'  + news.Name + '"></div>');
+      $(".grid").append( $item ).isotope( 'appended', $item).isotope('layout');
       d3load( news.Name );
       console.log(news.Name);
     });
 
 
+  // Functions below to initialize d3 upon new event
   script(language='JavaScript').
     function d3load ( containerName ) {
       scaleIn( containerName );
     }
     function labelFunction(val,min,max) {
     }
-    function start( containerName, width, percent ) {
+    function start( containerName, percent ) {
       var rp1 = radialProgress(document.getElementById(containerName))
       .label(containerName)
-      .diameter(width)
+      .diameter(100)
       .value(percent)
       .render();
     }
@@ -34,15 +47,5 @@ block content
 
     function scaleIn( containerName ) {
       var genPercent = getRandomInt(0,100);
-      var genWidth = getRandomInt(70, 150);
-      var genHeight = genWidth + 8;
-      $("#" + containerName ).transition({
-        width: genWidth + 'px', height: genHeight + 'px',
-        duration: 500,
-        easing: 'in',
-        complete: function() { 
-          start( containerName, genWidth, genPercent ); 
-          console.log('finished');
-        } 
-      });
+      start( containerName, genPercent ); 
     }
