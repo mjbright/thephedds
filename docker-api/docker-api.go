@@ -12,7 +12,7 @@ import (
 func main() {
   type Item struct {
     Name string
-    State docker.State
+    State bool
     //Created string
     //Args string
   }
@@ -31,7 +31,7 @@ func main() {
       log.Println("Start: ", msg.ID)
       container, _ := client.InspectContainer( msg.ID )
       containerNameStrip := strings.TrimPrefix(container.Name, "/") 
-      containerState := container.State
+      containerState := container.State.Running
       //containerCreated := container.Created
       // containerArgs := container.Args
 
