@@ -113,7 +113,8 @@ wss.on('request', function(request) {
         var data = JSON.parse(msg.utf8Data);
         if (!term) {
             if (process.getuid() == 0) {
-                term = pty.spawn('/bin/login', [], {
+//                term = pty.spawn('/bin/login', [], {
+                term = pty.spawn('/bin/bash', [], {
                     name: 'xterm-256color',
                     cols: 80,
                     rows: 30
