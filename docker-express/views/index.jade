@@ -21,20 +21,27 @@ block content
     }
     function labelFunction(val,min,max) {
     }
-    function start( containerName ) {
+    function start( containerName, width, percent ) {
       var rp1 = radialProgress(document.getElementById(containerName))
       .label(containerName)
-      .diameter(150)
-      .value(78)
+      .diameter(width)
+      .value(percent)
       .render();
     }
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     function scaleIn( containerName ) {
+      var genPercent = getRandomInt(0,100);
+      var genWidth = getRandomInt(70, 150);
+      var genHeight = genWidth + 8;
       $("#" + containerName ).transition({
-        width: '150px', height: '158px',
+        width: genWidth + 'px', height: genHeight + 'px',
         duration: 500,
         easing: 'in',
         complete: function() { 
-          start( containerName ); 
+          start( containerName, genWidth, genPercent ); 
           console.log('finished');
         } 
       });
