@@ -1,7 +1,7 @@
 # The Phedds
 The Phenomenal Docker Demos
 
-![the phedds gif](http://i.imgur.com/70XJ97C.gifv)
+![the phedds gif](http://i.imgur.com/70XJ97C.gif)
 
 # Description of the project
 
