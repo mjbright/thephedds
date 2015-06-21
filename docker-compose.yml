@@ -44,3 +44,10 @@ express:
   volumes:
     - ./docker-express/public:/code/public:rw
     - ./docker-express/views:/code/views:rw
+
+dockerui:
+  build: dockerui
+  ports:
+    - "9000:9000"
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock 

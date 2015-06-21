@@ -1,0 +1,124 @@
+extends layout
+
+block content
+  .graph-wrapper
+    #network
+
+  script(type='text/javascript').
+
+    $( document ).ready(function() {
+      draw();
+    });
+
+    ds = deepstream( 'http://thephedds.com:6020' ).login();
+    ds.event.subscribe( 'docker', function( news ){
+      $(".wrapper").append('<div class="container" id="'  + news.Name + '"></div>');
+      console.log(news.Name);
+      addNode( news.Name )
+    });
+
+
+  script(type='text/javascript').
+    var nodes, edges, network;
+
+
+    // convenience method to stringify a JSON object
+    function toJSON(obj) {
+        return JSON.stringify(obj, null, 4);
+    }
+
+    function addNode( containerName ) {
+        try {
+            nodes.add({
+                id: containerName,
+                label: containerName
+            });
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+
+    function updateNode() {
+        try {
+            nodes.update({
+                id: document.getElementById('node-id').value,
+                label: document.getElementById('node-label').value
+            });
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+    function removeNode() {
+        try {
+            nodes.remove({id: document.getElementById('node-id').value});
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+
+    function addEdge() {
+        try {
+            edges.add({
+                id: document.getElementById('edge-id').value,
+                from: document.getElementById('edge-from').value,
+                to: document.getElementById('edge-to').value
+            });
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+    function updateEdge() {
+        try {
+            edges.update({
+                id: document.getElementById('edge-id').value,
+                from: document.getElementById('edge-from').value,
+                to: document.getElementById('edge-to').value
+            });
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+    function removeEdge() {
+        try {
+            edges.remove({id: document.getElementById('edge-id').value});
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+
+    function draw() {
+        // create an array with nodes
+        nodes = new vis.DataSet();
+        nodes.add([
+        ]);
+
+        // create an array with edges
+
+        // create a network
+        var container = document.getElementById('network');
+        var data = {
+            nodes: nodes,
+        };
+        var options = {
+          "edges": {
+            "smooth": false
+          },
+          "physics": {
+            "barnesHut": {
+              "centralGravity": 0.8,
+              "gravitationalConstant": -800,
+              "damping": 0.08,
+              "avoidOverlap": 0.8
+            },
+            "maxVelocity": 5
+          }
+        }
+        network = new vis.Network(container, data, options);
+
+    }

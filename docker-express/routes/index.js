@@ -22,6 +22,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/graph', function(req, res, next) {
+  res.render('graph', { title: 'Graph' });
+});
 
 router.post('/docker-start', function(req, res) {
   res.send('success');

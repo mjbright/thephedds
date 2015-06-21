@@ -48,6 +48,14 @@ a {
 .wrapper {
   width:500px;
 }
+.graph-wrapper {
+  width:500px;
+  height:300px;
+}
+#network {
+  width:500px;
+  height:400px;
+}
 .container {
     float:left;
     width:0px;
