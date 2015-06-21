@@ -2,41 +2,32 @@ extends layout
 
 block content
   .table-wrapper
+    .container
+      table.table
+        thead
+          tr
+            th Docker Name
+            th State
+            th Created
+              tbody.rows
 
   script(type='text/javascript').
     ds = deepstream( 'http://thephedds.com:6020' ).login();
-
-    $(".table-wrapper").append(
-    '<div class="container">
-    <table class="table">
-    <thead>
-      <tr>
-        <th>Docker Name</th>
-        <th>State</th>
-        <th>Created</th>
-      </tr>
-    </thead>
-    <tbody>'
-    );
     
-    if news.State.Running == true{
-        var stateString = "Running";
-    }
     //var created = news.State.created
     ds.event.subscribe( 'docker', function( news ){
-      $(".table-wrapper").append('<tr>'
+      var stateString;
+      if (news.State.Running) { 
+          stateString = "Running";
+      }
+      $(".rows").append('<tr>'
 
             +'<td>'  + news.Name + '</td>'+
-            +'<td>'  + stateString + '</td>'+
-            // +'<td>'  + news.Created + '</td>'+
+            '<td><span class="label label-success">'  + stateString + '</span></td>'+
+            '<td>'  + news.State.StartedAt + '</td>'+
             // +'<td>'  + news.Args + '</td>'+
 
         '</tr>');
       console.log(news);
     });
 
-    $(".table-wrapper").append(
-    '       </tbody>
-          </table>
-        </div>'
-    );
