@@ -1,0 +1,55 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.background {
+    fill: #FFFFFF;
+    fill-opacity: 0.01;
+}
+
+.component {
+    fill: #e1e1e1;
+}
+
+.component .label {
+    font-family: Myriad, "Helvetic Neue", Helvetica, Arial;
+    text-anchor: middle;
+    fill: #0000FF;
+}
+
+.arc {
+    stroke-weight:0.1;
+    fill: #4e8fff;
+}
+
+
+.arc2 {
+    stroke-weight:0.1;
+    fill: #3660b0;
+}
+
+
+.label {
+    font-family:  Myriad, "Helvetic Neue", Helvetica, Arial;
+    text-anchor: middle;
+}
+
+.radial-svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.wrapper {
+  width:500px;
+}
+.container {
+    float:left;
+    width:0px;
+    height:0px;
+    border: 1px solid #000;
+}

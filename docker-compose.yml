@@ -34,3 +34,13 @@ deepstream:
   ports:
     - "6020:6020"
     - "6021:6021"
+
+express:
+  build: docker-express
+  ports:
+    - "3001:3000"
+  dns:
+    - 8.8.8.8
+  volumes:
+    - ./docker-express/public:/code/public:rw
+    - ./docker-express/views:/code/views:rw

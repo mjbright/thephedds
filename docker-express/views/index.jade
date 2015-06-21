@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .wrapper
+  #div1
+  #div2
+
+  script(type='text/javascript').
+    ds = deepstream( 'http://thephedds.com:6020' ).login();
+    ds.event.subscribe( 'docker', function( news ){
+      $(".wrapper").append('<div class="container" id="'  + news.Name + '"></div>');
+
+      d3load( news.Name );
+      console.log(news.Name);
+    });
+
+
+  script(language='JavaScript').
+    function d3load ( containerName ) {
+      scaleIn( containerName );
+    }
+    function labelFunction(val,min,max) {
+    }
+    function start( containerName ) {
+      var rp1 = radialProgress(document.getElementById(containerName))
+      .label(containerName)
+      .diameter(150)
+      .value(78)
+      .render();
+    }
+    function scaleIn( containerName ) {
+      $("#" + containerName ).transition({
+        width: '150px', height: '158px',
+        duration: 500,
+        easing: 'in',
+        complete: function() { 
+          start( containerName ); 
+          console.log('finished');
+        } 
+      });
+    }
