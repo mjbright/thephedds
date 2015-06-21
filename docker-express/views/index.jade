@@ -37,7 +37,7 @@ block content
     function start( containerName, percent ) {
       var rp1 = radialProgress(document.getElementById(containerName))
       .label(containerName)
-      .diameter($('#' + containerName).width())
+      .diameter($('#' + containerName).width() + 20)
       .value(percent)
       .render();
     }

@@ -1,15 +1,11 @@
 extends layout
 
 block content
-  .graph-wrapper
-    #network
+  .table-wrapper
 
   script(type='text/javascript').
-
-    
     ds = deepstream( 'http://thephedds.com:6020' ).login();
     ds.event.subscribe( 'docker', function( news ){
-      $(".wrapper").append('<tr><td>'  + news.Name + '</td></tr>');
+      $(".table-wrapper").append('<tr><td>'  + news.Name + '</td></tr>');
       console.log(news.Name);
     });
-  
