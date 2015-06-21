@@ -3,6 +3,7 @@ package main
 import (
   "os"
   "log"
+  "strings"
   //"fmt"
   "github.com/franela/goreq"
   docker "github.com/fsouza/go-dockerclient"
@@ -26,8 +27,9 @@ func main() {
     case "start":
       log.Println("Start: ", msg.ID)
       container, _ := client.InspectContainer( msg.ID )
-      log.Println( container.Name )
-      item := Item{ Name: container.Name }
+      containerNameStrip := strings.TrimPrefix(container.Name, "/")
+      log.Println( containerNameStrip )
+      item := Item{ Name: containerNameStrip }
       goreq.Request{
         Method: "POST",
         Uri: "http://172.17.42.1:3001/docker-start",
