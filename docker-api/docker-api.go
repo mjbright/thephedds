@@ -27,9 +27,17 @@ func main() {
     case "start":
       log.Println("Start: ", msg.ID)
       container, _ := client.InspectContainer( msg.ID )
-      containerNameStrip := strings.TrimPrefix(container.Name, "/")
+      containerNameStrip := strings.TrimPrefix(container.Name, "/") 
+      containerArgsStrip := container.Args
+      containerStateStrip := container.State
+      containerCreatedStrip := container.Created
+
       log.Println( containerNameStrip )
-      item := Item{ Name: containerNameStrip }
+      item := Item{ Name:   containerNameStrip,
+                    State:  container.State, 
+                    Created: container.Created, 
+                    Args:   container.Args
+                   }
       goreq.Request{
         Method: "POST",
         Uri: "http://172.17.42.1:3001/docker-start",

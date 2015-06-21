@@ -6,6 +6,13 @@ block content
   script(type='text/javascript').
     ds = deepstream( 'http://thephedds.com:6020' ).login();
     ds.event.subscribe( 'docker', function( news ){
-      $(".table-wrapper").append('<tr><td>'  + news.Name + '</td></tr>');
+      $(".table-wrapper").append('<tr>'
+
+            +'<td>'  + news.Name + '</td>'+
+            +'<td>'  + news.State + '</td>'+
+            +'<td>'  + news.Created + '</td>'+
+            +'<td>'  + news.Args + '</td>'+
+
+        '</tr>');
       console.log(news.Name);
     });
