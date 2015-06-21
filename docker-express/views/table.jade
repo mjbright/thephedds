@@ -6,10 +6,7 @@ block content
 
   script(type='text/javascript').
 
-    $( document ).ready(function() {
-      draw();
-    });
-
+    
     ds = deepstream( 'http://thephedds.com:6020' ).login();
     ds.event.subscribe( 'docker', function( news ){
       $(".wrapper").append('<tr><td>'  + news.Name + '</td></tr>');
