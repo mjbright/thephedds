@@ -4,9 +4,9 @@ The Phenomenal Docker Demos
 # Description of the project
 
 ## The original need 
-I've presented Docker many times at work and have generally started with a command-line demo where flipping between showing the basic "docker run" or other commands and then to another terminal to show what's happening in the background, OR I'm showing a Docker build, OR I'm showing docker compose being used to build a cluster of components and then hitting F5 to show that we're reaching different docker containers through load-balancing.
+We present Docker many times at work and generally start with a command-line demo then switch between multiple terminals windows. For example: showing the basic "docker run" or other commands and then jump to another terminal to show what's happening in the background: docker build, docker compose to build a cluster of components and then hitting F5 to show what's reaching different docker containers through load-balancing. IT IS REALLY HARD TO KEEP THE MIND IN ONE PLACE!!
 
-That's all great but what if I could have a multi-paned browser page showing different aspects all concurrently.
+Wouldn't it be great if multi-paned browser page that shows different aspects of docker containers concurrently?
 
 ## The Phedds
 With this idea in mind we built the Phedds
