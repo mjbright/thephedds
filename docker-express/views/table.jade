@@ -6,6 +6,19 @@ block content
   script(type='text/javascript').
     ds = deepstream( 'http://thephedds.com:6020' ).login();
 
+    $(".table-wrapper").append(
+    '<div class="container">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Docker Name</th>
+        <th>State</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>'
+    );
+    
     if news.State.Running == true{
         var stateString = "Running";
     }
@@ -21,3 +34,9 @@ block content
         '</tr>');
       console.log(news);
     });
+
+    $(".table-wrapper").append(
+    '       </tbody>
+          </table>
+        </div>'
+    );
