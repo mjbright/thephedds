@@ -21,7 +21,7 @@ block content
     ds.event.subscribe( 'docker', function( news ){
       var genClassSelector = getRandomInt(1, 4);
       var $item = $('<div class="grid-item grid-item--height-' + genClassSelector  + ' ' + 'grid-item--width-' + genClassSelector + ' " id="'  + news.Name + '"></div>');
-      $(".grid").append( $item ).isotope( 'appended', $item).isotope('layout');
+      $(".grid").prepend( $item ).isotope( 'prepended', $item).isotope('layout');
       d3load( news.Name );
       console.log(news.Name);
     });
