@@ -5,12 +5,12 @@ RUN apk add --update \
             git \
             && export GOPATH=/go
 ENV GOPATH /go
-#COPY ./docker-viz.go /go/src/github.com/thenayr/docker-viz/docker-viz.go
+
 WORKDIR /go
-RUN mkdir -p /go/src/github.com/thenayr/docker-viz
-RUN go get github.com/fsouza/go-dockerclient
-RUN go get github.com/franela/goreq
-ADD . /go/src/github.com/thenayr/docker-viz
-RUN go install github.com/thenayr/docker-viz
-#RUN go build -o /bin/docker-viz 
-ENTRYPOINT ["/go/bin/docker-viz"]
+
+RUN go get github.com/samalba/dockerclient
+
+ADD . /go/src/github.com/mjbright/thephedds
+WORKDIR /go/src/github.com/mjbright/thephedds
+RUN go install github.com/mjbright/thephedds
+ENTRYPOINT ["/go/bin/thephedds"]
